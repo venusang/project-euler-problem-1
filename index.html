@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Project Euler Problem 1 for loanDepot</title>
+    <link rel="stylesheet" href="https://assets.ubuntu.com/v1/vanilla-framework-version-1.8.0.min.css" />
+  </head>
+  <body>
+    <div class="row">
+      <div class="col-6 p-card">
+        <h3>Multiples of 3 and 5</h3>
+        <p>Problem 1</p>
+        <p>If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9.</p>
+        <p>The sum of these multiples is 23.</p>
+        <p>Find the sum of all the multiples of 3 or 5 below 1000.</p>
+        <hr />
+        <p>Original problem reference link <a href="https://projecteuler.net/problem=1" target="_blank">Project Euler - Project 1</a></p>
+      </div>
+      <div class="col-6 p-card">
+        <h1>Find the Sum</h1>
+        <form onsubmit="return false" class="p-form">
+          <label for="firstMultiple">Enter the first multple (e.g. 3):</label>
+          <input name="firstMultiple" id="firstMultiple" type="text" value="3" required=""><br/>
+          <label for="secondMultiple">Enter second multple (e.g. 5):</label>
+          <input name="secondMultiple" id="secondMultiple" type="text" value="5" required=""><br/>
+          <label for="upperLimit">Enter non-inclusive summation limit (e.g. 1000)</label>
+          <input name="upperLimit" id="upperLimit" type="text" value="1000" required="">
+          <input type="submit" class="p-button--positive" value="CALCULATE" onclick="projectEulerProblem1()">
+        </form>
+        <p>
+          The sum of the multiples is: <strong><span id="displayTotal"></span></strong>
+        </p>
+      </div>
+    </div>
+  </body>
+  <script>
+    function projectEulerProblem1() {
+      const firstMultiple = document.getElementById("firstMultiple").value;
+      const secondMultiple = document.getElementById("secondMultiple").value;
+      const upperLimit = document.getElementById("upperLimit").value;
+      let total = 0;
+      for (var i = 1; i < upperLimit; i++)
+        {
+            if (i % firstMultiple === 0 || i % secondMultiple === 0)
+            {
+                total += i;
+            }
+        }
+      document.getElementById('displayTotal').innerHTML = total.toLocaleString();
+    }
+  </script>
+</html>
